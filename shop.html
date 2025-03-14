@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Heebo:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        header {
+            background: #000;
+        }
+
+        .shop-section {
+            padding: 7rem 0;
+        }
+
+        .shop-header {
+            font-size: 2rem;
+            width: 80%;
+            margin: auto;
+            margin: 2rem auto;
+        }
+
+        .border-line {
+            border: 1px solid #ff8c00;
+            width: 80%;
+            margin: 2.5rem auto;
+        }
+
+        .shop-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .shop-title span {
+            margin-left: 0.5rem;
+        }
+
+        .prices {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* CSS (place in your stylesheet or within <style> tags) */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #f56c42;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #e55b31;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .flower-icon {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sorting {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Flower Shop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="shop-section">
+        <h2 class="shop-header">Shop</h2>
+        <div class="border-line"></div>
+        <div class="shop-title">
+            <p>Showing all 9 results</p>
+            <p class="sorting">Default Sorting <span><i class="fas fa-arrow-down"></i></span></p>
+        </div>
+
+        <div class="item-container">
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-4-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+                <p class="item-name">Flower</p>
+                <h2>Custom Floral Designs</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+                <div class="prices">
+                    <p class="original-price">₦45000</p>
+                    <p class="discounted-price">₦35000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-2-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+                <p class="item-name">Bouquet</p>
+                <h2>Periwinkle Flower</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦55000</p>
+                    <p class="discounted-price">₦30000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-1-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+                <p class="item-name">Bouquet</p>
+                <h2>Periwinkle Flowers Bouquet</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦79000</p>
+                    <p class="discounted-price">₦56000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-7-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+
+                <p class="item-name">Bouquet</p>
+                <h2>Rose Flower Bouquet</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦210000</p>
+                    <p class="discounted-price">₦199000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-10-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+
+                <p class="item-name">Bouquet</p>
+                <h2>Tulip Custom Flower</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦159000</p>
+                    <p class="discounted-price">₦129000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-5-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+
+                <p class="item-name">Bouquet</p>
+                <h2>Tulip Flower</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦129000</p>
+                    <p class="discounted-price">₦99000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-9-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+
+                <p class="item-name">Bouquet</p>
+                <h2>Wedding Flower Bouquet</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦229000</p>
+                    <p class="discounted-price">₦209000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-3-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+
+                <p class="item-name">Bouquet</p>
+                <h2>Wedding Flower Bouquet</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦229000</p>
+                    <p class="discounted-price">₦209000</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-image">
+                    <img src="product-8-400x400.jpg" alt="">
+                    <span class="sale-badge">Sale!</span>
+                    <span class="shop-icon"><i class="fas fa-shopping-cart"></i></span>
+                </div>
+
+                <p class="item-name">Bouquet</p>
+                <h2>Winkle Flower Bouquet</h2>
+                <div class="star-rating">
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                    <i class="fas fa-star fa-border"></i>
+                </div>
+
+                <div class="prices">
+                    <p class="original-price">₦229000</p>
+                    <p class="discounted-price">₦209000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <h2>Flower Shop</h2>
+                <p>Welcome to the world of Florist, where flowers come to life with love and creativity. Discover our
+                    story, our passion for flowers, and our commitment to making every moment memorable.</p>
+            </div>
+
+            <div class="footer-content">
+                <h2>Links</h2>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-content">
+                <h2>Contact Us</h2>
+                <p>Address: 41 Road, Festac Town 101660
+                    Email: contact@info.com
+                    Phone: +234 987 654 321</p>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <div class="copyright-text">
+                <p>Copyright © 2025 Flower Shop</p>
+            </div>
+            <div class="socials">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-x-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Back to Top">
+        <span class="flower-icon">🌸</span>
+    </button>
+
+    <script>
+        // JavaScript (place in a <script> tag or external JS file)
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('backToTop');
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) { // Show button after scrolling 300px
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

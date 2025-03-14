@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Heebo:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Cormorant Garamond;
+        }
+
+        p,
+        a {
+            font-family: Heebo, san-serif;
+        }
+
+        header {
+            position: fixed;
+            background: transparent;
+            padding: 0.9rem 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 0.9rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: orange;
+        }
+
+        .cart-icon {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-icon i {
+            font-size: 1.6rem;
+            color: #ff8c00;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: #ff8c00;
+            color: white;
+            font-size: 0.8rem;
+            width: 1rem;
+            height: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            border: 2px solid #ff8c00;
+        }
+
+        .menu-btn .bar {
+            display: block;
+            width: 1.8rem;
+            height: 0.18rem;
+            margin: 0.37rem;
+            background: #ff8c00;
+            transition: 0.3s;
+        }
+
+        .hero {
+            background: url("https://img.freepik.com/free-photo/side-view-woman-selling-flowers_23-2149871130.jpg?uid=R161865095&ga=GA1.1.1776193460.1725468603&semt=ais_hybrid") no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.2rem;
+            color: white;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-content h4 {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.62rem;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            width: 700px;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-btn {
+            background: #ff7043;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 0.3rem;
+            display: inline-block;
+            border-radius: 0.5rem;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #ff8c00;
+        }
+
+        .about-active {
+            padding-bottom: 5rem;
+        }
+
+        /* Our Story Section */
+        .ourstory {
+            background: #000;
+            color: #fff;
+        }
+
+        .ourstory-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ourstory-text {
+            width: 800px;
+        }
+
+        .ourstory-text h3 {
+            font-size: 0.9rem;
+            color: #ff7043;
+            margin-bottom: 1rem;
+        }
+
+        .ourstory-text h2 {
+            font-size: 3rem;
+            width: 600px;
+        }
+
+        .ourstory-text p {
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .ourstory-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .ourstory-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 300px 300px 0 0;
+            margin-top: -5rem;
+            padding-bottom: 3rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #000;
+            color: #fff;
+            padding: 2rem 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .border-line {
+            border: 1px solid #ff8c00;
+            width: 80%;
+            margin: 2.5rem auto;
+        }
+
+        .stats-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .stats-container h2 {
+            font-size: 3rem;
+        }
+
+        .stats-content h3 {
+            font-size: 1rem;
+        }
+
+        /* Our Goals Section */
+        .ourgoals {
+            padding: 3rem 0;
+        }
+
+        .ourgoal-image {
+            width: 100%;
+            height: auto;
+            max-width: 1200px;
+            margin: 5rem auto;
+        }
+
+        .ourgoal-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.6rem 0.6rem 0.6rem 0.6rem;
+        }
+
+        .ourgoal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ourgoal-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .ourgoal-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Team Section */
+        .team {
+            background: #f8f1e4;
+            padding: 4rem 0;
+        }
+
+        .team h3 {
+            font-size: 1rem;
+            color: #ff7043;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            font-weight: bold;
+        }
+
+        .team h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .team p {
+            font-size: 1rem;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .team-image-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            width: 90%;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .staff img {
+            width: 100%;
+            height: auto;
+            border-radius: 300px 300px 0 0;
+        }
+
+        .staff h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .staff p {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* CSS (place in your stylesheet or within <style> tags) */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #f56c42;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #e55b31;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .flower-icon {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .cart-icon {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                display: none;
+                padding: 1.2rem 0;
+            }
+
+            .nav-links li {
+                margin: 0.9rem 0;
+            }
+
+            .nav-links a {
+                color: black;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn.active .bar:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .menu-btn.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-btn.active .bar:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .hero-content {
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .hero-content h2 {
+                width: 100%;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem
+            }
+
+            .ourstory-container {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
+
+            .ourstory-text {
+                width: 90%;
+                margin-top: 3rem;
+            }
+
+            .ourstory-text h2 {
+                font-size: 2rem;
+                width: 90%;
+            }
+
+            .ourstory-image {
+                margin-top: 3.5rem;
+            }
+
+            .stats-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 90%;
+            }
+
+            .stats-content h2 {
+                font-size: 2rem;
+                width: 90%;
+            }
+
+            .border-line {
+                display: none;
+            }
+
+            .ourgoal-image {
+                width: 90%;
+            }
+
+            .ourgoal-content {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
+
+            .team-image-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                width: 90%;
+            }
+
+            .staff {
+                justify-content: flex-end;
+            }
+
+            .staff h2 {
+                font-size: 1.5rem;
+            }
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Flower Shop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h4>ABOUT US</h4>
+            <h2>Embarking on the Path to Our Dreams</h2>
+            <p>Join us as we bring our passion for flowers to life, crafting beautiful arrangements that adds joy and
+                elegance to every moment.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-container about-active">
+            <div class="about-image">
+                <img src="about-01.jpg" alt="" class="short">
+                <img src="about-02.jpg" alt="" class="tall">
+            </div>
+
+            <div class="about-text">
+                <h3>ABOUT FLORIST</h3>
+                <h2>Blossoming Your Special Moments With Natures Finest</h2>
+                <p>Welcome to the heart of Florist, where our love for flowers blooms into exquisite arrangements that
+                    celebrate life's most cherished moments. In this corner of the internet, we invite you to discover
+                    our passion, our team, and the essence of what makes Florist a blooming success. It is a long
+                    established fact that a reader will be distracted by the readable content of a page when looking at
+                    its layout.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ourstory">
+        <div class="ourstory-container">
+            <div class="ourstory-text">
+                <h3>OUR STORY</h3>
+                <h2>Ajourney From Passion To Florist</h2>
+                <p>Our journey began with a seed of passion that blossomed into a flourishing business. Allow us to
+                    share the story of our founder's deep-rooted love for flowers and how it led to the creation of your
+                    trusted floral destination. It is a long established fact that a reader will be distracted by the
+                    readable content of a page when looking at its layout.</p>
+                <p class="paragraph">Explore the tale of dedication, creativity, and a vision to spread the joy of
+                    nature’s beauty through the art of floral design. Discover the moments that shaped our founder’s
+                    path and paved the way for Florist to become a symbol of floral excellence.
+                </p>
+
+            </div>
+
+            <div class="ourstory-image">
+                <img src="our-story.jpg" alt="Our Story Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="border-line"></div>
+        <div class="stats-container">
+            <div class="stats-content">
+                <h2>500k+</h2>
+                <h3>Happy Customers</h3>
+            </div>
+            <div class="stats-content">
+                <h2>400+</h2>
+                <h3>Products</h3>
+            </div>
+            <div class="stats-content">
+                <h2>43+</h2>
+                <h3>Worldwide Shop</h3>
+            </div>
+            <div class="stats-content">
+                <h2>8+</h2>
+                <h3>Winning Awards</h3>
+            </div>
+        </div>
+        <div class="border-line"></div>
+    </section>
+
+    <section class="ourgoals">
+        <div class="ourgoal-image">
+            <img src="about.jpg" alt="">
+        </div>
+        <div class="ourgoal-content">
+            <div class="left-text">
+                <h2>Our Vision</h2>
+                <p>At Florist, our vision is to be the guiding light for floral elegance and creativity. We aspire to
+                    inspire, by reimagining the way flowers connect people, bring joy, and create lasting memories. We
+                    envision a world where every gesture, whether grand or subtle, is accompanied by the enchantment of
+                    flowers.</p>
+            </div>
+            <div class="right-text">
+                <h2>Our Mission</h2>
+                <p>Our mission is to craft floral artistry that elevates moments into memories. With dedication and
+                    expertise, we strive to provide our customers with the freshest, most enchanting blooms and
+                    personalized service that reflects the beauty and emotions of every occasion.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <h3>OUR TEAM</h3>
+        <h2>Our Dedicated Team Of Enthusiasts</h2>
+        <p>At our flower shop, our team is passionate about bringing beauty and joy to your life through the art of
+            flowers. With a deep love for nature and creativity.</p>
+        <div class="team-image-container">
+            <div class="staff">
+                <img src="team-skip-01.jpg" alt="">
+                <h2>Elizabeth B.</h2>
+                <P>Owner</P>
+            </div>
+            <div class="staff">
+                <img src="team-skip-02.jpg" alt="">
+                <h2>Amelia M.</h2>
+                <p>Co-Founder</p>
+            </div>
+            <div class="staff">
+                <img src="team-skip-03.jpg" alt="">
+                <h2>Victoria D.</h2>
+                <P>Marketing Manager</P>
+            </div>
+            <div class="staff">
+                <img src="team-skip-04.jpg" alt="">
+                <h2>Audrey S.</h2>
+                <p>Florist</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="call-to-action-container">
+            <div class="calltoaction-image">
+                <img src="cta.jpg" alt="">
+            </div>
+            <div class="calltoaction-text">
+                <h3>CALL TO ACTION</h3>
+                <h2>Explore Our Exquisite Floral Collection & Shop Now For The Perfect Blooms</h2>
+                <a href="#" class="cta-btn">SHOP NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <h2>Flower Shop</h2>
+                <p>Welcome to the world of Florist, where flowers come to life with love and creativity. Discover our
+                    story, our passion for flowers, and our commitment to making every moment memorable.</p>
+            </div>
+
+            <div class="footer-content">
+                <h2>Links</h2>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-content">
+                <h2>Contact Us</h2>
+                <p>Address: 41 Road, Festac Town 101660
+                    Email: contact@info.com
+                    Phone: +234 987 654 321</p>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <div class="copyright-text">
+                <p>Copyright © 2025 Flower Shop</p>
+            </div>
+            <div class="socials">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-x-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Back to Top">
+        <span class="flower-icon">🌸</span>
+    </button>
+
+    <script>
+        // JavaScript (place in a <script> tag or external JS file)
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('backToTop');
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) { // Show button after scrolling 300px
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

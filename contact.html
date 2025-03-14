@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Heebo:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero {
+            background: url("https://img.freepik.com/free-photo/medium-shot-woman-celebrating-mother-s-day_23-2151207268.jpg?uid=R161865095&ga=GA1.1.1776193460.1725468603&semt=ais_hybrid") no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.2rem;
+            color: white;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .contact-section {
+            max-width: 1200px;
+            background: white;
+            margin: auto;
+            padding: 6rem 0;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .contact-info {
+            width: 40%;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            margin-bottom: 15px;
+            border-bottom: 1px solid black;
+        }
+
+        .info-box strong {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .phone-email {
+            display: flex;
+            gap: 10rem;
+        }
+
+        .social-media strong {
+            display: block;
+            font-size: 16px;
+            margin: 1.2rem 0;
+        }
+
+        .icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .icons i {
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .icons i:hover {
+            transform: scale(1.2);
+        }
+
+        .contact-form {
+            width: 55%;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .contact-form span {
+            color: red;
+        }
+
+        .name-field {
+            display: flex;
+            gap: 10px;
+        }
+
+        .name-field input {
+            width: 50%;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .contact-info,
+        .contact-form {
+            width: 600px;
+        }
+
+        button[type="submit"] {
+            width: fit-content;
+            max-width: 200px;
+            background: #f56c42;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            color: #fff;
+            border-radius: 0.6rem;
+            font-weight: bold;
+        }
+
+        button[type="submit"]:hover {
+            background: #d55a35;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #fff5e1;
+            padding: 6rem 0;
+        }
+
+        .faq-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            gap: 2rem;
+        }
+
+        .faq-text h2 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .faq-text p {
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        .faq-questions h3 {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .faq-questions p {
+            font-size: 1rem;
+            margin: 1.2rem 0;
+        }
+
+        .question {
+            border-bottom: 1px solid #000;
+            margin-bottom: 1.2rem;
+        }
+
+        /* CSS (place in your stylesheet or within <style> tags) */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #f56c42;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #e55b31;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .flower-icon {
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+
+            .phone-email {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .contact-info {
+                width: 90%;
+            }
+
+            .contact-form {
+                width: 90%;
+            }
+
+            .faq-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .faq-text {
+                width: 90%;
+            }
+
+            .faq-questions {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Flower Shop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h4>CONTACT US</h4>
+            <h2>Get in Touch with Our Experts Team</h2>
+            <p>Have questions or need personalized flower recommendations? Our friendly team is here to help you find
+                the perfect arrangement for any occasion.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch With Us</h2>
+                <p>Share some details here. This is a Flexible section where you can share anything you want. It could
+                    be details or some information.</p>
+
+                <div class="info-box">
+                    <strong>Address</strong>
+                    <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="phone-email">
+                        <div class="phone">
+                            <strong>Phone</strong>
+                            <p>(+91) 987 654 321</p>
+                        </div>
+                        <div class="email">
+                            <strong>Email</strong>
+                            <p>info@contact.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <strong>Social Media</strong>
+                    <div class="icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-x-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <label for="name">Name <span>*</span></label>
+                    <div class="name-field">
+                        <input type="text" id="first-name" placeholder="First">
+                        <input type="text" id="last-name" placeholder="Last">
+                    </div>
+
+                    <label for="email">Email <span>*</span></label>
+                    <input type="email" id="email">
+
+                    <label for="message">Comment or Message</label>
+                    <textarea id="message"></textarea>
+
+                    <button type="submit" submit-btn">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-text">
+                <h2>FAQs</h2>
+                <p>Got questions about our blooms? Find answers to common inquiries about flower care, delivery options,
+                    and custom arrangements right here!</p>
+            </div>
+
+            <div class="faq-questions">
+                <div class="question">
+                    <h3>How do i order flowers and Choose delivery options?</h3>
+                    <p>Simply browse our shop, select your bouquet, and follow the checkout process. You can choose the
+                        delivery date and time during checkout.</p>
+                </div>
+
+                <div class="question">
+                    <h3>What areas do you deliver to, and can I track my delivery?</h3>
+                    <p>We deliver to [Service Areas], and you’ll receive a tracking number once your order is
+                        dispatched.</p>
+                </div>
+
+                <div class="question">
+                    <h3>How can I make my flowers last longer, and what if they arrive damaged?</h3>
+                    <p>For longer-lasting blooms, trim stems, change water, and keep in a cool place. Contact us if your
+                        flowers arrive damaged for a replacement or refund.</p>
+                </div>
+
+                <div class="question">
+                    <h3>What is your return policy and cancellation policy?</h3>
+                    <p>Contact us within [X days] for returns or exchanges. Orders can be canceled up to [X hours/days]
+                        before the scheduled delivery date.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="call-to-action-container">
+            <div class="calltoaction-image">
+                <img src="cta.jpg" alt="">
+            </div>
+            <div class="calltoaction-text">
+                <h3>CALL TO ACTION</h3>
+                <h2>Explore Our Exquisite Floral Collection & Shop Now For The Perfect Blooms</h2>
+                <a href="#" class="cta-btn">SHOP NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <h2>Flower Shop</h2>
+                <p>Welcome to the world of Florist, where flowers come to life with love and creativity. Discover our
+                    story, our passion for flowers, and our commitment to making every moment memorable.</p>
+            </div>
+
+            <div class="footer-content">
+                <h2>Links</h2>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-content">
+                <h2>Contact Us</h2>
+                <p>Address: 41 Road, Festac Town 101660
+                    Email: contact@info.com
+                    Phone: +234 987 654 321</p>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <div class="copyright-text">
+                <p>Copyright © 2025 Flower Shop</p>
+            </div>
+            <div class="socials">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-x-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" title="Back to Top">
+        <span class="flower-icon">🌸</span>
+    </button>
+
+    <script>
+        // JavaScript (place in a <script> tag or external JS file)
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('backToTop');
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) { // Show button after scrolling 300px
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
